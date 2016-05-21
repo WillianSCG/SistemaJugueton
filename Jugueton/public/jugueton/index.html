@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        Jugueton
+    </title>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+
+    <!-- Estilos -->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/slider.css">
+    <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+    <link rel="stylesheet" href="css/pd.login.css">
+</head>
+<body>
+<!-- Inicia el Navbar -->
+    <nav class="navbar navbar-inverse">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+                <span class="sr-only">Niños</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="Index.html">Jugueton</a>
+        </div>
+
+        <div class="collapse navbar-collapse js-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown mega-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Niños <span class="caret"></span></a>              
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">Colección de Niños</li>                            
+                                <div id="menCollection" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner" id="internoCarousel">
+                                        <div class="item active">
+                                            <a href="#"><img src="http://placehold.it/254x150/ff3546/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
+                                            <h4><small>Juguete 1</small></h4>                                        
+                                            <button class="btn btn-primary" type="button">49,99 $</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Lista de deseos</button>       
+                                        </div><!-- Producto -->
+                                        <div class="item">
+                                            <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
+                                            <h4><small>Juguete 2</small></h4>                                        
+                                            <button class="btn btn-primary" type="button">9,99 $</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Lista de deseos</button>        
+                                        </div><!-- Producto -->
+                                        <div class="item">
+                                            <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
+                                            <h4><small>Juguete 3</small></h4>                                        
+                                            <button class="btn btn-primary" type="button">49,99 $</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Lista de deseos</button>      
+                                        </div><!-- Producto -->                                
+                                    </div><!--Termina Carousel Inner -->
+                                    <!-- Controles -->
+                                    <a class="left carousel-control" href="#menCollection" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                        <span class="sr-only">Anterior</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#menCollection" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                        <span class="sr-only">Siguiente</span>
+                                    </a>
+                                </div><!-- /.carousel -->
+                                <li class="divider"></li>
+                                <li><a href="#">Ver galería <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+                            </ul>
+                        </li>
+                        <!--Inician las categorias-->
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">Categorias</li>
+                                <li><a href="#">Musical y Computadoras</a></li>
+                                <li><a href="#">Juguetes para bebes</a></li>
+                                <li><a href="#">Accesorios y Hogar </a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Edades</li>
+                                <li><a href="#">0-12 meses</a></li>
+                                <li><a href="#">12-24 meses</a></li>
+                                <li><a href="#">2 años</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">&nbsp;</li>
+                                  <li><a href="#">Figuras de acción y Carros de control</a></li>
+                                <li><a href="#">Carros pistas y trenes</a></li>
+                                <li><a href="#">Playa</a></li>
+                                    <li class="divider"></li>
+                                 <li class="dropdown-header">&nbsp;</li>
+                                <li><a href="#">3-4 años</a></li>
+                                <li><a href="#">5-7 años</a></li>
+                                
+                                                                               
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">&nbsp;</li>
+                                <li><a href="#">Juegos de mesa y de armar</a></li>     
+                                 <li><a href="#">Coches</a></li>  
+                                <li><a href="#">Deportes</a></li>
+                                 <li class="divider"></li>
+                                 <li class="dropdown-header">&nbsp;</li>
+                                <li><a href="#">8-11 años</a></li>
+                                <li><a href="#">Grandecitos</a></li>
+                                           
+                            </ul>
+                        </li>
+                    </ul>               
+                </li>
+                <!--Terminan Categorias -->
+
+                <!-- Inicia Segunda sección-->
+
+                <li class="dropdown mega-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Niñas <span class="caret"></span></a>                
+                    <ul class="dropdown-menu mega-dropdown-menu">
+                        <li class="col-sm-3">
+                            <ul>
+                     <li class="dropdown-header">Categorias</li>
+                                <li><a href="#">Musical y Computadoras</a></li>
+                                <li><a href="#">Juguetes para bebes</a></li>
+                                <li><a href="#">Barbies Accesorios y Hogar </a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Edades</li>
+                                <li><a href="#">0-12 meses</a></li>
+                                <li><a href="#">12-24 meses</a></li>
+                                <li><a href="#">2 años</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">&nbsp;</li>
+                                  <li><a href="#">Figuras de acción y Carros de control</a></li>
+                                <li><a href="#">Carros pistas y trenes</a></li>
+                                <li><a href="#">Playa</a></li>
+                                    <li class="divider"></li>
+                                 <li class="dropdown-header">&nbsp;</li>
+                                <li><a href="#">3-4 años</a></li>
+                                <li><a href="#">5-7 años</a></li>
+                                
+                                                                               
+                            </ul>
+                        </li>
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">&nbsp;</li>
+                                <li><a href="#">Juegos de mesa y de armar</a></li>     
+                                 <li><a href="#">Muñecas</a></li>  
+                                <li><a href="#">Deportes</a></li>
+                                 <li class="divider"></li>
+                                 <li class="dropdown-header">&nbsp;</li>
+                                <li><a href="#">8-11 años</a></li>
+                                <li><a href="#">Grandecitas</a></li>                        
+                            </ul>
+                        </li>
+                        <!--Terminan Categorias-->
+                        <!--Inicia Slider-->
+                        <li class="col-sm-3">
+                            <ul>
+                                <li class="dropdown-header">Colección de Niñas</li>                            
+                                <div id="womenCollection" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner" id="internoCarousel">
+                                        <div class="item active">
+                                            <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
+                                            <h4><small>Juguete 1</small></h4>                                        
+                                            <button class="btn btn-primary" type="button">49,99 $</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Lista de deseos</button>       
+                                        </div><!-- Producto -->
+                                        <div class="item">
+                                            <a href="#"><img src="http://placehold.it/254x150/ff3546/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
+                                            <h4><small>Juguete 2</small></h4>                                        
+                                            <button class="btn btn-primary" type="button">9,99 $</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Lista de deseos</button>        
+                                        </div><!-- Producto -->
+                                        <div class="item">
+                                            <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
+                                            <h4><small>Juguet 3</small></h4>                                        
+                                            <button class="btn btn-primary" type="button">49,99 $</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Lista de deseos</button>      
+                                        </div><!-- Producto -->                                
+                                    </div><!-- Termina Carousel Inner -->
+                                    <!-- Controles -->
+                                    <a class="left carousel-control" href="#womenCollection" role="button" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                        <span class="sr-only">Anterior</span>
+                                    </a>
+                                    <a class="right carousel-control" href="#womenCollection" role="button" data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                        <span class="sr-only">Siguiente</span>
+                                    </a>
+                                </div><!-- /.carousel -->
+                                <li class="divider"></li>
+                                <li><a href="#">Ver galería <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
+                            </ul>
+                        </li>
+                    </ul>               
+                </li>
+                <li><a href="#">Marcas</a></li>
+                <li><a href="#">Sucursales</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <!--Inicio de sesión NAV -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Iniciar sesión</b> <span class="caret"></span></a>
+                    <ul id="login-dp" class="dropdown-menu">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    Inicio de sesión via
+                                    <div class="social-buttons">
+                                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                                    </div>
+                                    o
+                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputEmail2">Correo Electronico</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Correo Electronico" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputPassword2">Contraseña</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Contraseña" required>
+                                            <div class="help-block text-right"><a href="">Olvidaste la contraseña ?</a></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Recuerdame 
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="bottom text-center">
+                                    No tienes cuenta? <a href="registrarse.html"><b> Registrate</b></a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!--Carrito de compras NAV -->
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span> 7 - Productos<span class="caret"></span></a>
+                    <ul class="dropdown-menu dropdown-cart" role="menu">
+                        <li>
+                            <span class="item">
+                                <span class="item-left">
+                                    <img src="http://lorempixel.com/50/50/" alt="">
+                                    <span class="item-info">
+                                        <span>Producto</span>
+                                        <span>23$</span>
+                                    </span>
+                                </span>
+                                <span class="item-right">
+                                    <button class="btn btn-xs btn-danger pull-right">x</button>
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="item">
+                                <span class="item-left">
+                                    <img src="http://lorempixel.com/50/50/" alt="">
+                                    <span class="item-info">
+                                        <span>Producto</span>
+                                        <span>23$</span>
+                                    </span>
+                                </span>
+                                <span class="item-right">
+                                    <button class="btn btn-xs btn-danger pull-right">x</button>
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="item">
+                                <span class="item-left">
+                                    <img src="http://lorempixel.com/50/50/" alt="">
+                                    <span class="item-info">
+                                        <span>Producto</span>
+                                        <span>23$</span>
+                                    </span>
+                                </span>
+                                <span class="item-right">
+                                    <button class="btn btn-xs btn-danger pull-right">x</button>
+                                </span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="item">
+                                <span class="item-left">
+                                    <img src="http://lorempixel.com/50/50/" alt="">
+                                    <span class="item-info">
+                                        <span>Producto</span>
+                                        <span>23$</span>
+                                    </span>
+                                </span>
+                                <span class="item-right">
+                                    <button class="btn btn-xs btn-danger pull-right">x</button>
+                                </span>
+                            </span>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a class="text-center" href="compras.html">Ver Carrito</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+      <!-- TERMINA NAV BAR -->
+
+      <!--INICIO DE CONTENIDO -->      
+        
+
+
+<br>
+<!-- ++++++++++++++++++++++++++ BOOTSTRAP CAROUSEL +++++++++++++++++++++++++++++ -->
+
+<div class="container">
+
+
+    <div id="kb" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
+
+        <!--======= Wrapper for Slides =======-->
+        <div class="carousel-inner" role="listbox">
+
+            <!--========= First Slide =========-->
+            <div class="item active">
+                <img src="https://unsplash.it/1920/1680?image=878" alt="slider 01" />
+                <div class="carousel-caption kb_caption">
+                    <h1 data-animation="animated flipInX">Slider Jugueton</h1>
+                    <h2 data-animation="animated flipInX">Algo de Texto</h2>
+                </div>
+            </div>
+
+            <!--========= Second Slide =========-->
+            <div class="item">
+                <img src="https://unsplash.it/1920/1680?image=874" alt="slider 02">
+                <div class="carousel-caption kb_caption kb_caption_right">
+                    <h1 data-animation="animated flipInX">Slider Jugueton</h1>
+                    <h2 data-animation="animated flipInX">Algo de Texto</h2>
+                </div>
+            </div>
+
+            <!--========= Third Slide =========-->
+            <div class="item">
+                <img src="https://unsplash.it/1920/1680?image=871" alt="slider 03" />
+                <div class="carousel-caption kb_caption kb_caption_center">
+                    <h1 data-animation="animated flipInX">Slider Jugueton</h1>
+                    <h2 data-animation="animated flipInX">Algo de texto</h2>
+                </div>
+            </div>
+
+        </div>
+
+        <!--======= Navigation Buttons =========-->
+
+        <!--======= Left Button =========-->
+        <a class="left carousel-control kb_control_left" href="#kb" role="button" data-slide="prev">
+            <span class="fa fa-angle-left kb_icons" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <!--======= Right Button =========-->
+        <a class="right carousel-control kb_control_right" href="#kb" role="button" data-slide="next">
+            <span class="fa fa-angle-right kb_icons" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+
+    </div> <!-- ++++++++++++++++++++++ END BOOTSTRAP CAROUSEL +++++++++++++++++++++++ -->
+
+</div>
+
+
+
+<!-- INICIA EL CONTENIDO -->
+<div class="container">
+   
+         <h1>Marcas</h1>
+
+        <div class="well">
+            <div id="myCarousel" class="carousel slide">
+                
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                            <div class="col-sm-3"><a href="#x"  class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x"  class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x"  class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x"  class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                    <div class="item">
+                        <div class="row">
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                            <div class="col-sm-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/150x150" alt="Image" class="img-responsive"></a>
+                            </div>
+                        </div>
+                        <!--/row-->
+                    </div>
+                    <!--/item-->
+                </div>
+                <!--/carousel-inner-->
+                              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                              </a>
+            </div>
+            <!--/myCarousel-->
+        </div>
+        <!--/well-->
+    </div>
+</div>
+
+
+   </div>
+
+
+
+        <!-- Title -->
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Novedades</h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Page Features -->
+        
+        <div class="row text-center">
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/800x500" alt="">
+                    <div class="caption">
+                        <h3>Producto 1</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <a href="#" class="btn btn-primary">Carrito</a> <a href="#" class="btn btn-default">Más Detalles</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/800x500" alt="">
+                    <div class="caption">
+                        <h3>Producto 2</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <a href="#" class="btn btn-primary"> Carritos</a> <a href="#" class="btn btn-default">Más Detalles</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/800x500" alt="">
+                    <div class="caption">
+                        <h3>Producto 3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <a href="#" class="btn btn-primary">Carrito</a> <a href="#" class="btn btn-default">Más Detalles</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/800x500" alt="">
+                    <div class="caption">
+                        <h3>Producto 4</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>
+                            <a href="#" class="btn btn-primary">Carrito</a> <a href="#" class="btn btn-default">Más Detalles</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+
+
+
+
+ <!-- *** FOOTER *** -->
+
+<div id="footer" data-animate="fadeInUp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <h4>Nosotros</h4>
+
+                <ul>
+                    <li><a href="text.html">Acerca de nosotros</a>
+                    </li>
+                    <li><a href="text.html">Terminos y condiciones</a>
+                    </li>
+                    <li><a href="faq.html">FAQ</a>
+                    </li>
+                    <li><a href="contact.html">Contactenos</a>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h4>Usuario</h4>
+
+                <ul>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Iniciar sesión</a>
+                    </li>
+                    <li><a href="registrarse.html">Registrarse</a>
+                    </li>
+                </ul>
+
+                <hr class="hidden-md hidden-lg hidden-sm">
+
+            </div>
+            <!-- /.col-md-3 -->
+
+            <div class="col-md-3 col-sm-6">
+
+                <h4>Información</h4>
+
+
+                <ul>
+                    <li><a href="category.html">Apartados</a>
+                    </li>
+                    <li><a href="category.html">Financiamientos</a>
+                    </li>
+                    <li><a href="category.html">Garantias y Devoluciones</a>
+                    </li>
+                    <li><a href="category.html">Ventas corporativas</a>
+                    </li>
+                </ul>
+
+                <hr class="hidden-md hidden-lg">
+
+            </div>
+            <!-- /.col-md-3 -->
+
+            <div class="col-md-3 col-sm-6">
+
+                <h4>Donde encontrarnos</h4>
+
+                    <br>Masferrer
+                    <br>Los Proceres
+                    <br>Multiplaza
+                    <br>Metrocentro San Salvador
+                    <br>
+                  
+                </p>
+
+                <a href="contact.html">Ir a sucursales</a>
+
+                <hr class="hidden-md hidden-lg">
+
+            </div>
+            <!-- /.col-md-3 -->
+
+
+
+            <div class="col-md-3 col-sm-6">
+
+                <h4>Buscar Producto</h4>
+
+                <p class="text-muted">Busca algún juguete que no encuentres por su nombre</p>
+
+                <form>
+                    <div class="input-group">
+
+                        <input type="text" class="form-control">
+
+                        <span class="input-group-btn">
+
+                            <button class="btn btn-default" type="button">Buscar!</button>
+
+                        </span>
+
+                    </div>
+                    <!-- /input-group -->
+                </form>
+
+                <hr>
+
+                <h4>Redes Sociales</h4>
+
+                <p class="social">
+                    <a href="#" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="twitter external" data-animate-hover="shake"><i class="fa fa-twitter"></i></a>
+                    <a href="#" class="instagram external" data-animate-hover="shake"><i class="fa fa-instagram"></i></a>
+                    <a href="#" class="gplus external" data-animate-hover="shake"><i class="fa fa-google-plus"></i></a>
+                    <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                </p>
+
+
+            </div>
+            <!-- /.col-md-3 -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+</div>
+<!-- /#footer -->
+
+<!-- *** FOOTER END *** -->
+
+
+
+
+        <!-- *** COPYRIGHT ***
+ _________________________________________________________ -->
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-6">
+                    <p class="pull-left">© 2016 Jugueton El Salvador</p>
+
+                
+                </div>
+            </div>
+        </div>
+        <!-- *** COPYRIGHT END *** -->
+
+
+
+
+
+
+
+
+<!-- jQuery JavaScript -->
+
+   <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/bootstrap-hover-dropdown.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/front.js"></script>
+    <script src="js/index.js"></script>
+  
+
+</body>
+</html>
