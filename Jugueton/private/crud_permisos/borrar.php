@@ -1,6 +1,6 @@
 <?php
 require("../lib/page.php");
-require("../../lib/database.php");
+require("../../lib/permisos.php");
 Page::header("Eliminar categoría");
 
 if(!empty($_GET['id'])) 
@@ -11,7 +11,6 @@ else
 {
     header("location: index.php");
 }
-
 if(!empty($_POST))
 {
 	$id = $_POST['id'];
