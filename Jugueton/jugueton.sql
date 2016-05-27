@@ -1,4 +1,3 @@
-create database jugueton
 
 create table if not exists marcas_producto( #M
 	id_marca int(11) unsigned not null auto_increment primary key,
