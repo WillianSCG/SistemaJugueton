@@ -144,17 +144,13 @@ class Page
                                     <li><a href='#'><i class='mdi-hardware-keyboard-tab'></i> Logout</a>
                                     </li>
                                 </ul>
-                                <a class='btn-flat dropdown-button waves-effect waves-light white-text profile-btn' href='#' data-activates='profile-dropdown'>John Doe<i class='mdi-navigation-arrow-drop-down right'></i></a>
+                                <a class='btn-flat dropdown-button waves-effect waves-light white-text profile-btn' href='#' data-activates='profile-dropdown'>Willian Stanley<i class='mdi-navigation-arrow-drop-down right'></i></a>
                                 <p class='user-roal'>Administrator</p>
                             </div>
                         </div>
                     </li>
-                    <li class='bold'><a href='index.html' class='waves-effect waves-cyan'><i class='mdi-action-dashboard'></i> Dashboard</a>
-                    </li>
-                    <li class='bold'><a href='app-email.html' class='waves-effect waves-cyan'><i class='mdi-communication-email'></i> Mailbox <span class='new badge'>4</span></a>
-                    </li>
-                    <li class='bold'><a href='app-calendar.html' class='waves-effect waves-cyan'><i class='mdi-editor-insert-invitation'></i> Calender</a>
-                    </li>
+                      
+                   
                     <li class='no-padding'>
                         <ul class='collapsible collapsible-accordion'>
                             <li class='bold'><a class='collapsible-header waves-effect waves-cyan'><i class='mdi-action-invert-colors'></i> CSS</a>
@@ -299,7 +295,7 @@ class Page
 		$footer = "</div>
 
             
-            <script src='../js/jquery-1.11.2.min.js'></script> 
+            <script src='../js/jquery-2.2.3.min.js'></script> 
            
             <script src='../js/materialize.min.js'></script>
            

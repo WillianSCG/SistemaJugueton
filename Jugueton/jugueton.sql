@@ -20,7 +20,7 @@ create table if not exists clasificaciones_producto( #M
 create table if not exists productos( #M
 	id_producto int(11) unsigned not null auto_increment primary key,
 	nombre_producto varchar(150) unique not null,
-	descripcion_producto varchar(350) unique not null,
+	descripcion_producto varchar(255) unique not null,
 	existencias_producto int unsigned not null default 0,
 	precio_normal_producto decimal(7,2) unsigned not null,
 	precio_oferta_producto decimal(7,2) unsigned not null,
