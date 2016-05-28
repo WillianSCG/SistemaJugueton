@@ -175,12 +175,12 @@ create table if not exists sucursales( #M
 	direccion_sucursal varchar(250) not null
 );
 
-create table if not exists cuentas( #M
-	id_cuenta int(11) unsigned not null auto_increment primary key,
-	nombre_completo_usuario varchar(300),
-	dui_usuario varchar(12) unique not null,
-	cuenta_mantenimiento varchar(35) unique not null,
-	contra_hash_cuenta_mantenimiento varchar(200) not null,
+create table if not exists empleados( #M
+	id_empleado int(11) unsigned not null auto_increment primary key,
+        usuario_empleado varchar(25) unique not null,
+	nombres_empleado varchar(100) unique not null,
+	apellidos_empleado varchar(200) not null,
+	contra_empleado varchar(200) not null,
 	creacion_cuenta_mantenimiento date not null,
 	ultimo_acceso_cuenta_mantenimiento timestamp not null,
 	id_sucursal int(11) unsigned not null,
