@@ -46,7 +46,7 @@ if($data != null)
 			<td>$row[0]</td>
 			<td><p class='truncate'>$row[1]</p></td>
 			<td>
-				<a href='delete.php?id=$row[2]&' class='btn red'><i class='material-icons'>delete</i></a>
+				<a href='delete.php?id=$row[2]&ident=$idcuenta' class='btn red'><i class='material-icons'>delete</i></a>
 			</td>
 		</tr>";
 		print($fila);

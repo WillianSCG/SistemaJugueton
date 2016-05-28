@@ -1,6 +1,12 @@
 <?php
 require("../lib/page.php");
 require("../../lib/permisos.php");
+
+$idcuenta = isset($_GET['ident']) ? $_GET['ident'] : 0;
+if ($idcuenta === 0) {
+	header('../index.php')
+}
+
 Page::header("Eliminar categoría");
 
 if(!empty($_GET['id'])) 
@@ -9,7 +15,7 @@ if(!empty($_GET['id']))
 }
 else
 {
-    header("location: index.php");
+    header("location: ../../index.php");
 }
 if(!empty($_POST))
 {
@@ -30,7 +36,7 @@ if(!empty($_POST))
 <form method='post' class='row'>
 	<input type='hidden' name='id' value='<?php print($id); ?>'/>
 	<button type='submit' class='btn red'><i class='material-icons right'>done</i>Si</button>
-	<a href='index.php' class='btn grey'><i class='material-icons right'>cancel</i>No</a>
+	<a href='index.php?ident=$idcuenta' class='btn grey'><i class='material-icons right'>cancel</i>No</a>
 </form>
 <?php
 Page::footer();

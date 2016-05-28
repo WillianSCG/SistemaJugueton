@@ -207,23 +207,14 @@ create table if not exists permisos( #M1
 	foreign key (id_cuenta) references jugueton.cuentas(id_cuenta) on update restrict on delete restrict
 );
 
-create table if not exists listas( #I
-	id_lista int(11) unsigned not null auto_increment primary key,
-	tipo_lista int(1) unsigned default 0 not null, #0 es normal, 1 es lista de deseos, 2 es carrito
-	nombre_lista varchar(35) not null,
-	id_cliente int(11) unsigned not null,
-	creacion_lista date not null,
-	index(id_cliente),
-	foreign key (id_cliente) references jugueton.clientes(id_cliente) on update restrict on delete restrict
-);
-
-create table if not exists enlistados( #I
-	id_enlistado int(11) unsigned not null auto_increment primary key,
-	id_lista int(11) unsigned not null,
+create table if not exists encarrito( #I
+	id_encarrito int(11) unsigned not null auto_increment primary key,
 	id_producto int(11) unsigned not null,
 	cantidad_producto int(2) unsigned not null,
-	foreign key (id_producto) references jugueton.productos(id_producto)  on update restrict on delete restrict,
-	foreign key (id_lista) references jugueton.listas(id_lista)  on update restrict on delete restrict
+	id_cliente int(11) unsigned unique not null,
+	index(id_cliente, id_producto),
+	foreign key (id_cliente) references jugueton.clientes(id_cliente) on update restrict on delete restrict
+	foreign key (id_producto) references jugueton.productos(id_producto)  on update restrict on delete restrict
 );
 
 create table if not exists eventos( #M
