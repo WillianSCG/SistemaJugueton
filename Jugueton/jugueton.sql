@@ -59,7 +59,7 @@ create table if not exists promociones( #M
 create table if not exists clientes( #I
     id_cliente int(11) unsigned not null auto_increment primary key,
 	usuario_cliente varchar(25) unique not null,
-	contra_hash_cliente varchar(200) not null,
+	contra_cliente varchar(200) not null,
 	nombres_cliente varchar(100) not null,
 	apellidos_cliente varchar(200) not null,
 	telefono_fijo int(8),
@@ -72,8 +72,10 @@ create table if not exists clientes( #I
 
 create table if not exists cuentas_club( #I
 	id_cuenta_club int(11) unsigned not null auto_increment primary key,
-	nombre_cuenta_club varchar(20) unique not null,
-	contra_hash_cuenta_club  varchar(150) not null,
+	usuario_cliente varchar(25) unique not null,
+	nombres_cuenta_club varchar(100) unique not null,
+	apellidos_cuenta_club varchar(200) not null,
+	contra_cuenta_club  varchar(150) not null,
 	creacion_cuenta_club date not null,
 	ultimo_acceso_cuenta_club timestamp not null
 );
