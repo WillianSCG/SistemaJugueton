@@ -213,7 +213,7 @@ create table if not exists encarrito( #I
 	cantidad_producto int(2) unsigned not null,
 	id_cliente int(11) unsigned unique not null,
 	index(id_cliente, id_producto),
-	foreign key (id_cliente) references jugueton.clientes(id_cliente) on update restrict on delete restrict
+	foreign key (id_cliente) references jugueton.clientes(id_cliente) on update restrict on delete restrict,
 	foreign key (id_producto) references jugueton.productos(id_producto)  on update restrict on delete restrict
 );
 
