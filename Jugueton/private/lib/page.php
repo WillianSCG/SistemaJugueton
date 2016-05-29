@@ -7,109 +7,65 @@ class Page
 		ini_set("date.timezone","America/El_Salvador");
 		$sesion = false;
 		$filename = basename($_SERVER['PHP_SELF']);
-		$header = "<!DOCTYPE html>
-					<html lang='es'>
-					<head>
-						<meta charset='utf-8'>
-                        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
-						<title>Jugueton - $title</title>
-						    <!-- CORE CSS-->    
-                        <link type='text/css' rel='stylesheet' href='../css/materialize.min.css'  media='screen,projection' >
-						<link href='../css/style.css' type='text/css' rel='stylesheet' media='screen,projection'>
-						<link type='text/css' rel='stylesheet' href='../css/icons.css'>
+		$header = "
+<!DOCTYPE html>
+<html lang='es'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+        <title>Jugueton - $title</title>
+        <!-- CORE CSS-->    
+        <link type='text/css' rel='stylesheet' href='../css/materialize.min.css'  media='screen,projection' >
+        <link href='../css/style.css' type='text/css' rel='stylesheet' media='screen,projection'>
+        <link type='text/css' rel='stylesheet' href='../css/icons.css'>
 
-			   <!-- Favicons-->
-				    <link rel='icon' href='images/favicon/favicon-32x32.png' sizes='32x32'>
-				    <!-- Favicons-->
-				    <link rel='apple-touch-icon-precomposed' href='images/favicon/apple-touch-icon-152x152.png'>
-				    <!-- For iPhone -->
-				    <meta name='msapplication-TileColor' content='#00bcd4'>
-				    <meta name='msapplication-TileImage' content='images/favicon/mstile-144x144.png'>
-				    <!-- For Windows Phone -->
-                        <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->    
-                <link href='../js/plugins/perfect-scrollbar/perfect-scrollbar.css' type='text/css' rel='stylesheet' media='screen,projection'>
-                <link href='../js/plugins/jvectormap/jquery-jvectormap.css' type='text/css' rel='stylesheet' media='screen,projection'>
-                <link href='../js/plugins/chartist-js/chartist.min.css' type='text/css' rel='stylesheet' media='screen,projection'>
+        <!-- Favicons-->
+        <link rel='icon' href='images/favicon/favicon-32x32.png' sizes='32x32'>
+        <!-- Favicons-->
+        <link rel='apple-touch-icon-precomposed' href='images/favicon/apple-touch-icon-152x152.png'>
+        <!-- For iPhone -->
+        <meta name='msapplication-TileColor' content='#00bcd4'>
+        <meta name='msapplication-TileImage' content='images/favicon/mstile-144x144.png'>
+        <!-- For Windows Phone -->
+        <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->    
+        <link href='../js/plugins/perfect-scrollbar/perfect-scrollbar.css' type='text/css' rel='stylesheet' media='screen,projection'>
+        <link href='../js/plugins/jvectormap/jquery-jvectormap.css' type='text/css' rel='stylesheet' media='screen,projection'>
+        <link href='../js/plugins/chartist-js/chartist.min.css' type='text/css' rel='stylesheet' media='screen,projection'>
+    </head>
 
+<body>
+<!-- 
+<div id='loader-wrapper'>
+<div id='loader'></div>        
+<div class='loader-section section-left'></div>
+<div class='loader-section section-right'></div>
+</div> -->
 
-
-					
-
-					</head>
-
-					<body>
-                    <!-- 
-                     <div id='loader-wrapper'>
-                        <div id='loader'></div>        
-                        <div class='loader-section section-left'></div>
-                        <div class='loader-section section-right'></div>
-                 </div> -->
-					
-					
-					<div class='navbar-fixed'>
-		    			<nav class='cyan'>
-		      				<div class='nav-wrapper'>";
-		      	if(isset($_SESSION['nombre_usuario']))
-    			{
-    				$sesion = true;
-	        		$header .= "<div class='navbar-fixed'>
-           			 <nav class='cyan'>
-               	 <div class='nav-wrapper'>
-                    <h1 class='logo-wrapper'><a href='index.html' class='brand-logo darken-1'><img src='images/materialize-logo.png' alt='Jugueton'></a> <span class='logo-text'>Materialize</span></h1>
-                    <ul class='right hide-on-med-and-down'>
-                        <li class='search-out'>
-                            <input type='text' class='search-out-text'>
-                        </li>
-                        <li>    
-                            <a href='javascript:void(0);' class='waves-effect waves-block waves-light show-search'><i class='mdi-action-search'></i></a>                              
-                        </li>
-                        <li><a href='javascript:void(0);' class='waves-effect waves-block waves-light toggle-fullscreen'><i class='mdi-action-settings-overscan'></i></a>
-                        </li>
-                        <li><a href='javascript:void(0);' class='waves-effect waves-block waves-light'><i class='mdi-social-notifications'></i></a>
-                        </li>
-                        <!-- Dropdown Trigger -->                        
-                        <li><a href='#' data-activates='chat-out' class='waves-effect waves-block waves-light chat-collapse'><i class='mdi-communication-chat'></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>";
-	      		}
-	      		else
-	      		{
-	      			$header .= "<a href='../../' class='brand-logo'>
-	        						<i class='material-icons'>web</i>
-	    						</a>";
-	      		}
-		      	$header .= "</div>
-		    			</nav>
-	  				</div>
-	  				<div class='container center-align'>";
-	  	print($header);
-  		if($sesion)
-  		{
-  			if($filename != "login.php")
-  			{
-  				print("<h3>$title</h3>");
-  			}
-  			else
-  			{
-  				header("location: index.php");
-  			}
-  		}
-  		else
-  		{
-  			if($filename != "login.php" && $filename != "register.php")
-  			{
-  				print("<div class='card-panel red'><a href='../main/login.php'><h5>Debe iniciar sesión.</h5></a></div>");
-		  		self::footer();
-		  		exit();
-  			}
-  			else
-  			{
-  				print("<h3>$title</h3>");
-  			}
-  		}
+<div class='nav-wrapper'>
+    <div class='navbar-fixed'>
+        <nav class='cyan'>
+           	 <div class='nav-wrapper'>
+                <h1 class='logo-wrapper'><a href='index.html' class='brand-logo darken-1'><img src='images/materialize-logo.png' alt='Jugueton'></a> <span class='logo-text'>Materialize</span></h1>
+                <ul class='right hide-on-med-and-down'>
+                    <li class='search-out'>
+                        <input type='text' class='search-out-text'>
+                    </li>
+                    <li>    
+                        <a href='javascript:void(0);' class='waves-effect waves-block waves-light show-search'><i class='mdi-action-search'></i></a>                              
+                    </li>
+                    <li><a href='javascript:void(0);' class='waves-effect waves-block waves-light toggle-fullscreen'><i class='mdi-action-settings-overscan'></i></a>
+                    </li>
+                    <li><a href='javascript:void(0);' class='waves-effect waves-block waves-light'><i class='mdi-social-notifications'></i></a>
+                    </li>
+                    <!-- Dropdown Trigger -->                        
+                    <li><a href='#' data-activates='chat-out' class='waves-effect waves-block waves-light chat-collapse'><i class='mdi-communication-chat'></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>";
+print($header);
 	}
 
 
@@ -337,6 +293,11 @@ class Page
             });
             
             </script>
+            
+<script>$(document).ready(function() {
+    $('select').material_select();
+  });
+</script>
     					</body>
     					</html>";
 

@@ -177,7 +177,7 @@ create table if not exists sucursales( #M
 
 create table if not exists empleados( #M
 	id_empleado int(11) unsigned not null auto_increment primary key,
-        usuario_empleado varchar(25) unique not null,
+    usuario_empleado varchar(25) unique not null,
 	nombres_empleado varchar(100) unique not null,
 	apellidos_empleado varchar(200) not null,
 	contra_empleado varchar(200) not null,
@@ -206,7 +206,7 @@ create table if not exists permisos( #M1
 	index(id_accion, id_pantalla, id_cuenta),
 	foreign key (id_accion) references jugueton.acciones(id_accion) on update restrict on delete restrict,
 	foreign key (id_pantalla) references jugueton.pantallas(id_pantalla) on update restrict on delete restrict,
-	foreign key (id_cuenta) references jugueton.cuentas(id_cuenta) on update restrict on delete restrict
+	foreign key (id_cuenta) references jugueton.empleados(id_cuenta) on update restrict on delete restrict
 );
 
 create table if not exists encarrito( #I

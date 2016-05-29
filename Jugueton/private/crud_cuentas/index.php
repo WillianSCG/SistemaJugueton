@@ -1,12 +1,10 @@
 <?php 
 require("../lib/page.php");
-require("../../lib/permisos.php");
+require("../../lib/usuarios.php");
+
 Page::header("Categorías");
 Page::main();
-$idcuenta = isset($_GET['ident']) ? $_GET['ident'] : 0;
-if ($idcuenta == 0) {
-	header('../index.php');
-}
+
  ?>
 
  <div class="container">
@@ -20,18 +18,19 @@ if ($idcuenta == 0) {
  			<button type='submit' class='btn grey left'><i class='material-icons right'>pageview</i>Aceptar</button> 	
  		</div>
  		<div class='input-field col s12 m4'>
- 			<a href='save.php' class='btn indigo'><i class='material-icons right'>note_add</i>Nuevo</a>
+ 			<a href='crear.php' class='btn indigo'><i class='material-icons right'>note_add</i>Nuevo</a>
  		</div>
  	</form>
 </div>
 <?php
-	$data = permiso::obtenerTodosPermisosDe($id_cuenta);
+	$data = usuarios::listaUsuarios();
  ?>
 <table class='responsive-table centered striped'>
 	<thead>
 		<tr>
-			<th>Clase de permiso</th>
-			<th>Formulario</th>
+			<th>Nombre</th>
+			<th>Usuario</th>
+			<th>Sucursal</th>
 			<th>Acciones</th>
 		</tr>
 	</thead>
@@ -40,12 +39,14 @@ if ($idcuenta == 0) {
 if($data != null)
 	foreach($data as $row)
 	{
-		$fila = "";
-		$fila .=	"<tr>
+		$fila = "
+		<tr>
 			<td>$row[0]</td>
 			<td><p class='truncate'>$row[1]</p></td>
+			<td><p class='truncate'>$row[2]</p></td>
 			<td>
-				<a href='delete.php?id=$row[2]&ident=$idcuenta' class='btn red'><i class='material-icons'>delete</i></a>
+				<a href='delete.php?id=$row[0]' class='btn red tooltipped' data-position='bottom' data-delay='50' data-tooltip='Borrar'><i class='material-icons'>delete</i></a>
+				<a href='delete.php?id=$row[0]' class='btn red tooltipped' data-position='bottom' data-delay='50' data-tooltip='Ver permisos'><i class='material-icons'>delete</i></a>
 			</td>
 		</tr>";
 		print($fila);
