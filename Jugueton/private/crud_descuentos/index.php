@@ -1,7 +1,7 @@
 <?php
 require("../lib/page.php");
 require("../../lib/database.php");
-Page::header("noticias");
+Page::header("Eventos");
 ?>
 <form method='post' class='row'>
 	<div class='input-field col s6 m4'>
@@ -20,12 +20,12 @@ Page::header("noticias");
 if(!empty($_POST))
 {
 	$search = trim($_POST['buscar']);
-	$sql = "SELECT * FROM noticias WHERE informacion LIKE ? ORDER BY fecha_inicio";
+	$sql = "SELECT * FROM descuentos WHERE porcentaje LIKE ? ORDER BY porcentaje";
 	$params = array("%$search%");
 }
 else
 {
-	$sql = "SELECT * FROM noticias ORDER BY fecha_inicio";
+	$sql = "SELECT * FROM descuentos ORDER BY porcentaje";
 	$params = null;
 }
 $data = Database::getRows($sql, $params);
@@ -34,23 +34,21 @@ if($data != null)
 	$tabla = 	"<table class='centered striped'>
 					<thead>
 			    		<tr>
-				    		<th>NOMBRE</th>
-				    		<th>IMAGEN</th>
-				    		<th>FECHA INICIO</th>
-				    		<th>FECHA FIN</th>
+				    		<th>PORCENTAJE</th>
+				    		<th>CODIGO</th>
+				    		<th>ESTADO</th>
 			    		</tr>
 		    		</thead>
 		    		<tbody>";
 		foreach($data as $row)
 		{
 	        $tabla .=	"<tr>
-	            			<td>$row[informacion]</td>
-	            			<td><img src='data:image/*;$row[imagen_noticia]' class='materialboxed' width='100' height='100'></td>
-	            			<td><p class='truncate'>$row[fecha_inicio]</p></td>
-	            			<td><p class='truncate'>$row[fecha_fin]</p></td>
+	            			<td>$row[porcentaje]</td>
+	            			<td><p class='truncate'>$row[codigo_identificador]</p></td>
+	            			<td><p class='truncate'>$row[usado_cupon]</p></td>
 	            			<td>
-	            				<a href='save.php?id=$row[id_noticia]' class='btn blue'><i class='material-icons'>mode_edit</i></a>
-								<a href='delete.php?id=$row[id_noticia]' class='btn red'><i class='material-icons'>delete</i></a>
+	            				<a href='save.php?id=$row[id_descuento_porcentual]' class='btn blue'><i class='material-icons'>mode_edit</i></a>
+								<a href='delete.php?id=$row[id_descuento_porcentual]' class='btn red'><i class='material-icons'>delete</i></a>
 							</td>
 	        			</tr>";
 		}
