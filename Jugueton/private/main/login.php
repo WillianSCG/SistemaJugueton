@@ -1,6 +1,6 @@
 <?php
 require("../../lib/database.php");
-$sql = "SELECT * FROM usuarios";
+$sql = "SELECT * FROM empleados";
 $data = Database::getRows($sql, null);
 if($data == null)
 {
@@ -14,13 +14,13 @@ Page::header("Iniciar sesión");
 if(!empty($_POST))
 {
 	$_POST = validator::validateForm($_POST);
-  	$alias = $_POST['alias'];
-  	$clave = $_POST['clave'];
+  	$usuario_empleado = $_POST['usuario_empleado'];
+  	$contra_empleado = $_POST['contra_empleado'];
   	try
     {
       	if($alias != "" && $clave != "")
   		{
-  			$sql = "SELECT * FROM usuarios WHERE alias = ?";
+  			$sql = "SELECT * FROM empleados WHERE usuario_empleado = ?";
 		    $param = array($alias);
 		    $data = Database::getRow($sql, $param);
 		    if($data != null)
@@ -29,23 +29,23 @@ if(!empty($_POST))
 		    	if(password_verify($clave, $hash)) 
 		    	{
 			    	session_start();
-			    	$_SESSION['id_usuario'] = $data['id_usuario'];
-			      	$_SESSION['nombre_usuario'] = $data['nombres']." ".$data['apellidos'];
+			    	$_SESSION['id_empleado'] = $data['id_empleado'];
+			      	$_SESSION['nombre_usuario'] = $data['nombres_empleado']." ".$data['apellidos_empleado'];
 			      	header("location: index.php");
 				}
 				else 
 				{
-					throw new Exception("La clave ingresada es incorrecta.");
+					throw new Exception("La contraseña ingresada es incorrecta.");
 				}
 		    }
 		    else
 		    {
-		    	throw new Exception("El alias ingresado no existe.");
+		    	throw new Exception("El usuario ingresado no existe.");
 		    }
 	  	}
 	  	else
 	  	{
-	    	throw new Exception("Debe ingresar un alias y una clave.");
+	    	throw new Exception("Debe ingresar un usuario y una contraseña.");
 	  	}
     }
     catch (Exception $error)
@@ -58,12 +58,12 @@ if(!empty($_POST))
 	<div class='row'>
 		<div class='input-field col m6 offset-m3 s12'>
 			<i class='material-icons prefix'>person_pin</i>
-			<input id='alias' type='text' name='alias' class='validate' required/>
+			<input id='alias' type='text' name='usario_empleado' class='validate' required/>
 	    	<label for='alias'>Usuario</label>
 		</div>
 		<div class='input-field col m6 offset-m3 s12'>
 			<i class='material-icons prefix'>vpn_key</i>
-			<input id='clave' type='password' name='clave' class="validate" required/>
+			<input id='clave' type='password' name='contra_empleado' class="validate" required/>
 			<label for='clave'>Contraseña</label>
 		</div>
 	</div>
