@@ -290,7 +290,10 @@ $(document).ready(function() {
     $('.button-collapse').sideNav({'edge': 'left'});
     $('.datepicker').pickadate({selectYears: 20});
     $('select').not('.disabled').material_select();
-  });
+});
+$(document).ready(function() {
+    Materialize.updateTextFields();
+});
 </script>
     					</body>
     					</html>";

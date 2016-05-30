@@ -35,14 +35,14 @@ if (empty($_POST)) {
 	$errores .= productos::validar($nombre, $descripcion, $precio_no, $precio_of, $precio_af, $categoria, $clasificacion, $marca);
 	
 	if (mb_strlen($errores) < 1) {
-		$errores = productos::crearCuenta($nombre, $dui_usuario, $usuario, $contra, $id_sucursal);
+		$errores = productos::crearProducto($nombre, $descripcion, $precio_no, $precio_of, $precio_af, $categoria, $clasificacion, $marca, $estado_oferta);
 	}
 	if (mb_strlen($errores)==0) {
 		header('index.php');	
 	}
 }
 
-page::header("Crear usuario");
+page::header("Crear producto");
 Page::main();
 
  ?>
@@ -53,22 +53,22 @@ Page::main();
 				<div class="row">
 					<div class="col s12 input-field">
 						<input id="nombre" name="nombre" type="text" class="validate" length="300" <?php echo !empty($nombre) ? ' value="'.$nombre.'" ' : ''; ?>>
-						<label for="nombre">Nombre completo</label>
+						<label for="nombre">Nombre</label>
 					</div>
 				</div>
 			</div>
 			<div class='input-field col s12 m6'>
 				<div class="row">
 					<div class="col s12 input-field">
-						<input id="descripcion" name="descripcion" type="number" class="validate" length="9" <?php echo !empty($descripcion) ? ' value="'.$descripcion.'" ' : ''; ?>>
-						<label for="dui">DUI</descripcion>
+						<input id="descripcion" name="descripcion" type="text" class="validate" length="9" <?php echo !empty($descripcion) ? ' value="'.$descripcion.'" ' : ''; ?>>
+						<label for="descripcion">Descripcion</descripcion>
 					</div>
 				</div>
 			</div>
 			<div class='input-field col s12 m6'>
 				<div class="row">
 					<div class="col s12 input-field">
-						<input id="precio_no" name="precio_no" type="number" class="validate"  <?php echo !empty($precio_no) ? ' value="'.$precio_no.'" ' : ''; ?>>
+						<input id="precio_no" name="precio_no" type="number" class="validate" max="99999.99" min="0.01" step="any" <?php echo !empty($precio_no) ? ' value="'.$precio_no.'" ' : ''; ?>>
 						<label for="precio_no">Precio normal</label>
 					</div>
 				</div>
@@ -76,7 +76,7 @@ Page::main();
 			<div class='input-field col s12 m6'>
 				<div class="row">
 					<div class="col s12 input-field">
-						<input id="precio_of" name="precio_of" type="number" class="validate"  <?php echo !empty($precio_of) ? ' value="'.$precio_of.'" ' : ''; ?>>
+						<input id="precio_of" name="precio_of" type="number" class="validate" max="99999.99" min="0.01" step="any" <?php echo !empty($precio_of) ? ' value="'.$precio_of.'" ' : ''; ?>>
 						<label for="precio_of">Precio oferta</label>
 					</div>
 				</div>
@@ -84,7 +84,7 @@ Page::main();
 			<div class='input-field col s12 m6'>
 				<div class="row">
 					<div class="col s12 input-field">
-						<input id="precio_af" name="precio_af" type="number" class="validate"  <?php echo !empty($precio_af) ? ' value="'.$precio_af.'" ' : ''; ?>>
+						<input id="precio_af" name="precio_af" type="number" class="validate" max="99999.99" min="0.01" step="any" <?php echo !empty($precio_af) ? ' value="'.$precio_af.'" ' : ''; ?>>
 						<label for="precio_af">Precio afiliado</label>
 					</div>
 				</div>
@@ -139,7 +139,7 @@ if (!empty($filas))
 			<div class="input-field col s12 m6">
 				<p>
 					<input type="checkbox" id="chk_activo" name="estado_oferta" <?php echo ($estado_oferta == 'true') ? 'checked="checked"' : '' ;; ?>>
-					<label for="chk_activo">Red</label>
+					<label for="chk_activo">Está en oferta</label>
 				</p>
 			</div>
 		</div>
