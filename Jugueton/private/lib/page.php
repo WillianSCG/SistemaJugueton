@@ -109,7 +109,7 @@ print($header);
                    
                     <li class='no-padding'>
                         <ul class='collapsible collapsible-accordion'>
-                            <li class='bold'><a class='collapsible-header waves-effect waves-cyan'><i class='mdi-action-invert-colors'></i> CSS</a>
+                            <li class='bold'><a class='collapsible-header waves-effect waves-cyan'><i class='mdi-shopping_cart'></i> Productos</a>
                                 <div class='collapsible-body'>
                                     <ul>
                                         <li><a href='css-typography.html'>Typography</a>
