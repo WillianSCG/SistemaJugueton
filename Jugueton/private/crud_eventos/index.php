@@ -44,8 +44,23 @@ if($data != null)
 		{
 	        $tabla .=	"<tr>
 	            			<td>$row[descripcion]</td>
+	            			  			<td><img src='data:image/*;base64,$row[imagen_evento]' class='materialboxed' width='100' height='100'></td>
 	            			<td><p class='truncate'>$row[fecha_inicio]</p></td>
 	            			<td><p class='truncate'>$row[fecha_fin]</p></td>
+	            			<td>";
+if ($row['esta_activo'] == 'false') {
+	$tabla .= "<p>
+      <input type='checkbox' checked='checked' disabled='disabled' />
+      <label class='blue-text'>Deshabilitado</label>
+    </p>";
+}
+else {
+	$tabla .= "<p>
+      <input type='checkbox' checked='checked'/>
+      <label class='blue-text'>Habilitado</label>
+    </p>";
+}
+			$tabla .= 				"</td>
 	            			<td>
 	            				<a href='save.php?id=$row[id_evento]' class='btn blue'><i class='material-icons'>mode_edit</i></a>
 								<a href='delete.php?id=$row[id_evento]' class='btn red'><i class='material-icons'>delete</i></a>
