@@ -44,8 +44,13 @@ class productos
 
 	public static function obtenerProductos()
 	{
-		$sql = "";
-
+		return Database::getRows(
+			"SELECT productos.id_producto, productos.nombre_producto, productos.descripcion_producto, productos.precio_normal_producto, categorias.categoria, clasificaciones.clasificacion, marcas.marca
+			FROM marcas
+			    LEFT JOIN productos ON productos.id_marca = marcas.id_marca
+			    LEFT JOIN categorias ON productos.id_categoria = categorias.id_categoria
+			    LEFT JOIN clasificaciones ON productos.id_clasificacion = clasificaciones.id_clasificacion",
+			null);
 	}
 }
  ?>
