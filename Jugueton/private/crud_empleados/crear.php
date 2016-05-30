@@ -2,23 +2,24 @@
 require("../lib/page.php");
 require("../../lib/usuarios.php");
 
-$nombre		 = isset($_POST['nombre']) 	? $_POST['nombre'] 	: '';
-$dui_usuario = isset($_POST['dui']) 	? $_POST['dui'] 	: '';
-$usuario	 = isset($_POST['usuario']) ? $_POST['usuario'] : '';
-$contra		 = isset($_POST['contra1']) ? $_POST['contra1'] : '';
-$contra2	 = isset($_POST['contra2']) ? $_POST['contra2'] : '';
-$id_sucursal = isset($_POST['sucursal'])? $_POST['sucursal']:  0;
+$nombre		 = isset($_POST['nombre'])		? $_POST['nombre'] 		: '';
+$apellido	 = isset($_POST['apellido'])	? $_POST['apellido'] 	: '';
+$correo = isset($_POST['correo']) 		? $_POST['correo'] 		: '';
+$usuario	 = isset($_POST['usuario']) 	? $_POST['usuario'] 	: '';
+$contra		 = isset($_POST['contra1']) 	? $_POST['contra1'] 	: '';
+$contra2	 = isset($_POST['contra2']) 	? $_POST['contra2'] 	: '';
+$id_sucursal = isset($_POST['sucursal'])	? $_POST['sucursal']	:  0;
 
 $errores = '';
 
 if (empty($_POST)) {
 
 } else{
-	$errores .= usuarios::comprobarExistencia($usuario, $dui_usuario);
+	$errores .= usuarios::comprobarExistencia($usuario, $correo);
 	
 	if (mb_strlen($errores) < 1) {
 		if ($contra === $contra2) 
-			$errores = usuarios::crearCuenta($nombre, $dui_usuario, $usuario, $contra, $id_sucursal);
+			$errores = usuarios::crearCuenta($nombre, $apellido, $correo, $usuario, $contra, $id_sucursal);
 		else $errores .= 'La contraseña no es igual';
 	}
 
@@ -38,17 +39,26 @@ Page::main();
 				<div class="row">
 					<div class="col s12 input-field">
 						<i class="material-icons prefix">account_box</i>
-						<input id="nombre" name="nombre" type="text" class="validate" length="300" <?php echo !empty($nombre) ? ' value="'.$nombre.'" ' : ''; ?>>
-						<label for="nombre">Nombre completo</label>
+						<input id="nombre" name="nombre" type="text" class="validate" length="100" <?php echo !empty($nombre) ? ' value="'.$nombre.'" ' : ''; ?>>
+						<label for="nombre">Nombres</label>
+					</div>
+				</div>
+			</div>
+			<div class='input-field col s12'>
+				<div class="row">
+					<div class="col s12 input-field">
+						<i class="material-icons prefix">account_box</i>
+						<input id="apellido" name="apellido" type="text" class="validate" length="200" <?php echo !empty($apellido) ? ' value="'.$apellido.'" ' : ''; ?>>
+						<label for="apellido">Apellidos</label>
 					</div>
 				</div>
 			</div>
 			<div class='input-field col s12 m6'>
 				<div class="row">
 					<div class="col s12 input-field">
-						<i class="material-icons prefix">confirmation_number</i>
-						<input id="dui" name="dui" type="number" class="validate" length="9" <?php echo !empty($dui_usuario) ? ' value="'.$dui_usuario.'" ' : ''; ?>>
-						<label for="dui">DUI</label>
+						<i class="material-icons prefix">mail_outline</i>
+						<input id="correo" name="correo" type="mail" class="validate" <?php echo !empty($correo) ? ' value="'.$correo.'" ' : ''; ?>>
+						<label for="correo">Correo electrónico</label>
 					</div>
 				</div>
 			</div>
