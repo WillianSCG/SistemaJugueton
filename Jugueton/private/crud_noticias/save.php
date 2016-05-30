@@ -5,107 +5,95 @@ require("../../lib/validator.php");
 
 if(empty($_GET['id'])) 
 {
-    Page::header("Agregar noticia");
     $id = null;
-    
-    $informacion = null;
-    $imagen = null;
-    $fechai =  null;
-    $fechaf = null;
+    $titulo = null;
+    $imagen_noticia = null;
+    $descripcion = null;
+    $fecha = null;
 }
 else
 {
-    Page::header("Modificar noticia");
     $id = $_GET['id'];
     $sql = "SELECT * FROM noticias WHERE id_noticia = ?";
     $params = array($id);
     $data = Database::getRow($sql, $params);
-    
-    $informacion = $data['informacion'];
+    $titulo = $data['titulo'];
     $imagen = $data['imagen_noticia'];
-    $fechai = $data['fecha_inicio'];
-    $fechaf = $data['fecha_fin'];
+    $descripcion = $data['descripcion'];
+    $fecha = $data['fecha_noticia'];
 }
 
 if(!empty($_POST))
 {
     $_POST = Validator::validateForm($_POST);
-     
-  	$informacion = $_POST['informacion'];
+    $titulo = $_POST['titulo'];
     $archivo = $_FILES['imagen'];
-    $fechai = $_POST['fecha_inicio'];
-    $fechaf = $_POST['fecha_fin'];
-    if($informacion == "")
+    $descripcion = $_POST['descripcion'];
+    $fecha = $_POST['fecha_noticia'];
+    if($titulo == "")
     {
-        $informacion = null;
+        $titulo = null;
     }
+try 
+    {
 
-    
-
-    
-	    function mthAgregar($informacion,$imagen,$fechai,$fechaf)
-	    {
-	    	require("../../lib/database.php");
-	        $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	        $sql = "INSERT INTO noticias(informacion,imagen_noticia,fecha_inicio,fecha_fin) values(?, ?, ?, ?)";
-	        $stmt = $PDO->prepare($sql);
-	        $stmt->execute(array($informacion,$imagen,$fechai,$fechaf));
-	        $PDO = null;
-	        header("location: index.php");
-		}
-
+      if($archivo['name'] != null)
+        {
+            $base64 = Validator::validateImage($archivo);
+            if($base64 != false)
+            {
+                $imagen = $base64;
+            }
+            else
+            {
+                throw new Exception("La imagen seleccionada no es valida.");
+            }
+        }
+        else
+        {
+            if($imagen == null)
+            {
+                throw new Exception("Debe seleccionar una imagen.");
+            }
+        }
         
-    if($imagen['name'] == null) //Si no se ha seleccionado una imagen para el producto.
-	    {
-	    	//Se dispara la función para agregar un producto y se manda de parámetro el nombre de la imagen por defecto.
-	    	mthAgregar($informacion,"123.jpg",$fechai,$fechaf);
-	    }
-	    else //Si el usuario ha seleccionado una imagen para el producto.
-	    {
-	    	$error = "";
-	    	if($imagen['type'] == "image/jpeg" || $imagen['type'] == "image/png" || $imagen['type'] == "image/x-icon" || $imagen['type'] == "image/gif")
-	        {
-	        	$info_imagen = getimagesize($imagen['tmp_name']);
-	        	$ancho_imagen = $info_imagen[0]; 
-				$alto_imagen = $info_imagen[1];
-				if ($ancho_imagen == 172 && $alto_imagen == 180)
-				{
-					$nuevo_id = uniqid(); //Esto sirve para darle un nombre único a cada archivo de imagen.
-			        $nombre_archivo = $imagen['tmp_name'];
-			        $imagen_producto = $nuevo_id.".png";
-			        $destino = "../img/$imagen_producto";
-			        move_uploaded_file($nombre_archivo, $destino); //Función para subir archivos al servidor.
-			        //Se dispara la función para agregar un producto y se manda de parámetro el nombre de la imagen.
-					mthAgregar($informacion,$imagen,$fechai,$fechaf);
-				}
-				else
-				{
-					$error = "La dimensión de la imagen no es apropiada.";
-				}
-	    	}
-	    	else
-	    	{
-	    		$error = "El formato de la imagen no es válido.";
-	    	}
+        if($id == null)
+        {
+          $sql = "INSERT INTO noticias(titulo, imagen_noticia,descripcion,fecha_noticia) VALUES(?, ?,?,?)";
+            $params = array($titulo,$imagen,$descripcion, $fecha);
+        }
+        else
+        {
+            $sql = "UPDATE noticias SET titulo = ?,imagen_noticia=?, descripcion = ?, fecha_noticia = ? WHERE id_noticia = ?";
+            $params = array( $titulo,$imagen,$descripcion, $fecha, $id);
+        }
+        Database::executeRow($sql, $params);
+        header("location: index.php");
     }
-    
+    catch (Exception $error)
+    {
+        print("<div class='card-panel red'><i class='material-icons left'>error</i>".$error->getMessage()."</div>");
+    }
 }
+Page::header("Modificar noticia");
+Page::main();
 ?>
 <form method='post' class='row' enctype='multipart/form-data'>
     <div class='row'>
         <div class='input-field col s12 m6'>
-          	<i class='material-icons prefix'>add</i>
-          	<input id='nombre' type='text' name='informacion' class='validate' length='50' maxlenght='50' value='<?php print($informacion); ?>' required/>
-          	<label for='nombre'>Nombre</label>
+            <i class='material-icons prefix'>add</i>
+            <input id='nombre' type='text' name='titulo' class='validate' length='50' maxlenght='50' value='<?php print($titulo); ?>' required/>
+            <label for='nombre'>Titulo</label>
         </div>
         <div class='input-field col s12 m6'>
-          	<i class='material-icons prefix'>description</i>
-          	<input id='descripcion' type='date' name='fecha_inicio' class='validate' length='200' maxlenght='200' value='<?php print($fechai); ?>'/>
+            <i class='material-icons prefix'>description</i>
+          	<input id='descripcion' type='date' name='fecha_noticia' class='validate' length='200' maxlenght='200' value='<?php print($fecha_noticia); ?>'/>
           	
         </div>
         <div class='input-field col s12 m6'>
             <i class='material-icons prefix'>description</i>
-            <input id='descripcion' type='date' name='fecha_fin' class='validate' length='200' maxlenght='200' value='<?php print($fechaf); ?>'/>
+            <input id='descripcion' type='text' name='descripcion' class='validate' length='200' maxlenght='200' value='<?php print($descripcion); ?>'/>
+            <label for='nombre'>Descripcion</label>
         </div>
     
       <div class='row'>
