@@ -136,6 +136,12 @@ if (!empty($filas))
 				</select>
 				<label>Marcas</label>
 			</div>
+			<div class="input-field col s12 m6">
+				<p>
+					<input type="checkbox" id="chk_activo" name="estado_oferta" <?php echo ($estado_oferta == 'true') ? 'checked="checked"' : '' ;; ?>>
+					<label for="chk_activo">Red</label>
+				</p>
+			</div>
 		</div>
 		<div class='input-field col s12'>
 			<button type='submit' class='btn grey right yuxtapuesto'><i class="material-icons right">note_add</i>Aceptar</button>
