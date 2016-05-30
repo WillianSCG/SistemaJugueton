@@ -2,6 +2,7 @@
 require("../lib/page.php");
 require("../../lib/database.php");
 Page::header("Eventos");
+Page::main();
 ?>
 <form method='post' class='row'>
 	<div class='input-field col s6 m4'>
@@ -35,8 +36,10 @@ if($data != null)
 					<thead>
 			    		<tr>
 				    		<th>EVENTO</th>
+				    		<th>IMAGEN</th>
 				    		<th>FECHA INICIO</th>
 				    		<th>FECHA FIN</th>
+				    		<th>ESTADO</th>
 			    		</tr>
 		    		</thead>
 		    		<tbody>";

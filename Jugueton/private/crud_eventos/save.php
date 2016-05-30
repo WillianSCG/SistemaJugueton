@@ -70,10 +70,10 @@ try
         }
         else
         {
-            $sql = "UPDATE eventos SET imagen_evento=?, descripcion = ?, fecha_inicio = ?, fecha_fin = ?, esta_activo=? WHERE id_evento = ?";
-            $params = array( $titulo,$imagen,$descripcion, $fechai, $fechaf, $estado,$id);
+            $sql = "UPDATE eventos SET imagen_evento=?, descripcion = ?, fecha_inicio = ?, fecha_fin = ?, esta_activo = ? WHERE id_evento = ?";
+            $params = array($imagen,$descripcion, $fechai, $fechaf, $estado,$id);
         }
-        print_r($params);
+       
         Database::executeRow($sql, $params);
         header("location: index.php");
     }
