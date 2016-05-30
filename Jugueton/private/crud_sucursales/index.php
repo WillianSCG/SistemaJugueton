@@ -36,7 +36,7 @@ if($data != null)
 					<thead>
 			    		<tr>
 				    		<th>NOMBRE</th>
-				    		<th>DIRECCIÓN/th>
+				    		<th>DIRECCIÓN</th>
 				    		<th>ACCIÓN</th>
 			    		</tr>
 		    		</thead>

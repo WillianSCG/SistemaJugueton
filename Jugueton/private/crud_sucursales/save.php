@@ -18,7 +18,7 @@ else
     $sql = "SELECT * FROM sucursales WHERE id_sucursal = ?";
     $params = array($id);
     $data = Database::getRow($sql, $params);
-    $nombre = $data['nombre_sucursal'];
+    $nombre = $data['sucursal'];
     $direccion = $data['direccion_sucursal'];
 }
 

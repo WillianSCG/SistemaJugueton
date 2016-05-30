@@ -112,16 +112,14 @@ print($header);
                             <li class='bold'><a class='collapsible-header waves-effect waves-cyan'><i class='mdi-shopping_cart'></i> Productos</a>
                                 <div class='collapsible-body'>
                                     <ul>
-                                        <li><a href='css-typography.html'>Typography</a>
+                                        <li><a href='../crud_productos/index.php'>Mantenimiento Productos</a>
                                         </li>                                        
-                                        <li><a href='css-icons.html'>Icons</a>
+                                        <li><a href='../categorias/categorias.php'>Categorias</a>
                                         </li>
-                                        <li><a href='css-shadow.html'>Shadow</a>
+                                        <li><a href='../clasificaciones/clasificacion.php'>Clasificaciones</a>
                                         </li>
-                                        <li><a href='css-media.html'>Media</a>
-                                        </li>
-                                        <li><a href='css-sass.html'>Sass</a>
-                                        </li>
+                                        <li><a href='../Marcas/index.php'>Marca</a>
+                                       
                                     </ul>
                                 </div>
                             </li>
