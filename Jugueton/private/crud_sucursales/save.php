@@ -5,75 +5,50 @@ require("../../lib/validator.php");
 
 if(empty($_GET['id'])) 
 {
+    Page::header("Agregar Sucursal");
+    Page::main();
     $id = null;
-    $imagen = null;
-    $descripcion = null;
-    $fechai =  null;
-    $fechaf = null;
-    $estado = 'false';
+    $nombre = null;
+    $direccion = null;
 }
 else
 {
-    
+    Page::header("Modificar Sucursal");
     $id = $_GET['id'];
-    $sql = "SELECT * FROM eventos WHERE id_evento= ?";
+    $sql = "SELECT * FROM sucursales WHERE id_sucursal = ?";
     $params = array($id);
     $data = Database::getRow($sql, $params);
-    $imagen = $data['imagen_evento'];
-    $descripcion = $data['descripcion'];
-    $fechai = $data['fecha_inicio'];
-    $fechaf = $data['fecha_fin'];
-    $estado = $data['esta_activo'];
+    $nombre = $data['nombre_sucursal'];
+    $direccion = $data['direccion_sucursal'];
 }
 
 if(!empty($_POST))
 {
     $_POST = Validator::validateForm($_POST);
-    $archivo = $_FILES['imagen'];
-    $descripcion = $_POST['descripcion'];
-    $fechai = $_POST['fecha_inicio'];
-    $fechaf = $_POST['fecha_fin'];
-    $estado = isset($_POST['estado']) ?
-	    'true' :
-	    'false' ;
-    if($descripcion == "")
+  	$nombre = $_POST['nombre'];
+  	$direccion = $_POST['direccion_sucursal'];
+    if($direccion == "")
     {
-        $descripcion = null;
+        $direccion = null;
     }
-try 
-    {
 
-      if($archivo['name'] != null)
+    try 
+    {
+      	if($nombre == "")
         {
-            $base64 = Validator::validateImage($archivo);
-            if($base64 != false)
-            {
-                $imagen = $base64;
-            }
-            else
-            {
-                throw new Exception("La imagen seleccionada no es valida.");
-            }
+            throw new Exception("Datos incompletos.");
         }
-        else
-        {
-            if($imagen == null)
-            {
-                throw new Exception("Debe seleccionar una imagen.");
-            }
-        }
-        
+
         if($id == null)
         {
-			$sql = "INSERT INTO eventos(imagen_evento,descripcion,fecha_inicio,fecha_fin,esta_activo) VALUES(?,?,?,?,?);";
-			$params = array($imagen,$descripcion, $fechai, $fechaf, $estado);
+        	$sql = "INSERT INTO sucursales(sucursal, direccion_sucursal) VALUES(?, ?)";
+            $params = array($nombre, $direccion);
         }
         else
         {
-            $sql = "UPDATE eventos SET imagen_evento=?, descripcion = ?, fecha_inicio = ?, fecha_fin = ?, esta_activo = ? WHERE id_evento = ?";
-            $params = array($imagen,$descripcion, $fechai, $fechaf, $estado,$id);
+            $sql = "UPDATE sucursales SET sucursal = ?, direccion_sucursal = ? WHERE id_sucursal = ?";
+            $params = array($nombre, $direccion, $id);
         }
-       
         Database::executeRow($sql, $params);
         header("location: index.php");
     }
@@ -82,42 +57,20 @@ try
         print("<div class='card-panel red'><i class='material-icons left'>error</i>".$error->getMessage()."</div>");
     }
 }
-Page::header("Modificar evento");
-Page::main();
 ?>
 <form method='post' class='row' enctype='multipart/form-data'>
-	<div class='row'>
-		<div class='input-field col s12 m6'>
-			<i class='material-icons prefix'>add</i>
-			<input id='nombre' type='text' name='descripcion' class='validate' length='50' maxlenght='50' value='<?php print($descripcion); ?>' required/>
-			<label for='nombre'>Titulo</label>
-		</div>
-		<div class='input-field col s12 m6'>
-			<i class='material-icons prefix'>description</i>
-			<input id='descripcion' type='date' name='fecha_inicio' class='validate' length='200' maxlenght='200' value='<?php print($fechai); ?>'/>
-		</div>
-		<div class='input-field col s12 m6'>
-			<i class='material-icons prefix'>description</i>
-			<input id='descripcion' type='date' name='fecha_fin' class='validate' length='200' maxlenght='200' value='<?php print($fechaf); ?>'/>
-		</div>
-		<div class='row'>
-			<div class='file-field input-field col s12 m6'>
-				<div class='btn'>
-					<span>Imagen</span>
-					<input type='file' name='imagen'>
-				</div>
-					<div class='file-path-wrapper'>
-					<input class='file-path validate' type='text' placeholder='1200x1200px máx., 2MB máx., PNG/JPG/GIF'>
-				</div>
-			</div>
-			<div class='file-field input-field col s12 m6'>
-				<p>
-					<input type="checkbox" name="estado" id="check_estado" />
-					<label for="check_estado">Habilitar</label>
-				</p>
-			</div>
-		</div>
-	</div>
+    <div class='row'>
+        <div class='input-field col s12 m6'>
+          	<i class='material-icons prefix'>add</i>
+          	<input id='nombre' type='text' name='nombre' class='validate' length='50' maxlenght='50' value='<?php print($nombre); ?>' required/>
+          	<label for='nombre'>Nombre</label>
+        </div>
+        <div class='input-field col s12 m6'>
+          	<i class='material-icons prefix'>description</i>
+          	<input id='direccion' type='text' name='direccion' class='validate' length='200' maxlenght='200' value='<?php print($direccion); ?>'/>
+          	<label for='direccion'>Direccion</label>
+        </div>
+    </div>
     <a href='index.php' class='btn grey'><i class='material-icons right'>cancel</i>Cancelar</a>
  	<button type='submit' class='btn blue'><i class='material-icons right'>save</i>Guardar</button>
 </form>

@@ -1,7 +1,7 @@
 <?php
 require("../lib/page.php");
 require("../../lib/database.php");
-Page::header("Eventos");
+Page::header("Sucursales");
 Page::main();
 ?>
 <form method='post' class='row'>
@@ -21,12 +21,12 @@ Page::main();
 if(!empty($_POST))
 {
 	$search = trim($_POST['buscar']);
-	$sql = "SELECT * FROM eventos WHERE descripcion LIKE ? ORDER BY fecha_inicio";
+	$sql = "SELECT * FROM sucursales WHERE sucursal LIKE ? ORDER BY sucursal";
 	$params = array("%$search%");
 }
 else
 {
-	$sql = "SELECT * FROM eventos ORDER BY fecha_inicio";
+	$sql = "SELECT * FROM sucursales ORDER BY sucursal";
 	$params = null;
 }
 $data = Database::getRows($sql, $params);
@@ -35,38 +35,20 @@ if($data != null)
 	$tabla = 	"<table class='centered striped'>
 					<thead>
 			    		<tr>
-				    		<th>EVENTO</th>
-				    		<th>IMAGEN</th>
-				    		<th>FECHA INICIO</th>
-				    		<th>FECHA FIN</th>
-				    		<th>ESTADO</th>
+				    		<th>NOMBRE</th>
+				    		<th>DIRECCIÓN/th>
+				    		<th>ACCIÓN</th>
 			    		</tr>
 		    		</thead>
 		    		<tbody>";
 		foreach($data as $row)
 		{
 	        $tabla .=	"<tr>
-	            			<td>$row[descripcion]</td>
-	            			  			<td><img src='data:image/*;base64,$row[imagen_evento]' class='materialboxed' width='100' height='100'></td>
-	            			<td><p class='truncate'>$row[fecha_inicio]</p></td>
-	            			<td><p class='truncate'>$row[fecha_fin]</p></td>
-	            			<td>";
-if ($row['esta_activo'] == 'false') {
-	$tabla .= "<p>
-      <input type='checkbox' checked='checked' disabled='disabled' />
-      <label class='blue-text'>Deshabilitado</label>
-    </p>";
-}
-else {
-	$tabla .= "<p>
-      <input type='checkbox' checked='checked'/>
-      <label class='blue-text'>Habilitado</label>
-    </p>";
-}
-			$tabla .= 				"</td>
+	            			<td>$row[sucursal]</td>
+	            			<td><p class='truncate'>$row[direccion_sucursal]</p></td>
 	            			<td>
-	            				<a href='save.php?id=$row[id_evento]' class='btn blue'><i class='material-icons'>mode_edit</i></a>
-								<a href='delete.php?id=$row[id_evento]' class='btn red'><i class='material-icons'>delete</i></a>
+	            				<a href='save.php?id=$row[id_sucursal]' class='btn blue'><i class='material-icons'>mode_edit</i></a>
+								<a href='delete.php?id=$row[id_sucursal]' class='btn red'><i class='material-icons'>delete</i></a>
 							</td>
 	        			</tr>";
 		}

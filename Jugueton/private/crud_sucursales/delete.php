@@ -1,7 +1,8 @@
 <?php
 require("../lib/page.php");
 require("../../lib/database.php");
-Page::header("Eliminar evento");
+Page::header("Eliminar Sucursal");
+Page::main();
 
 if(!empty($_GET['id'])) 
 {
@@ -17,7 +18,7 @@ if(!empty($_POST))
 	$id = $_POST['id'];
 	try 
 	{
-		$sql = "DELETE FROM eventos WHERE id_evento = ?";
+		$sql = "DELETE FROM sucursales WHERE id_sucursal = ?";
 	    $params = array($id);
 	    Database::executeRow($sql, $params);
 	    header("location: index.php");
