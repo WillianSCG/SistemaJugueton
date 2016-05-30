@@ -519,7 +519,7 @@
 $datos = productos::obtenerProductos();
 foreach ($datos as $fila) {
     $nombre = $fila['nombre_producto'];
-    $precio = ($fila['estado_oferta'] == 'false') ? '$'.$fila['precio_normal_producto'] : '$'.$fila['precio_oferta_producto'] ;
+    $precio = ($fila['estado_oferta'] == 'false') ? '<del>$'.$fila['precio_normal_producto'] : '<del>$'.$fila['precio_normal_producto'].'</del>'.' $'.$fila['precio_oferta_producto'] ;
     $item = "
 <div class='col-md-4 col-sm-6'>
     <div class='product'>
@@ -536,7 +536,7 @@ foreach ($datos as $fila) {
                 </a>
                 </div>
             </div>
-        </div>'
+        </div>
         <a href='detail.html' class='invisible'>
             <img src='img/product1.jpg' alt='' class='img-responsive'>
         </a>

@@ -1,18 +1,4 @@
 <?php 
-/*
-productos
-id_producto
-nombre_producto
-descripcion_producto
-existencias_producto
-precio_normal_producto
-precio_oferta_producto
-precio_afiliado_producto
-id_categoria
-id_clasificacion
-id_marca
-estado_oferta
-*/
 
 /**
 * Clase de productos
