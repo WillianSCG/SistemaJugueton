@@ -277,9 +277,19 @@ print($header);
             
             <!--plugins.js - Some Specific JS codes for Plugin Settings-->
             <script type='text/javascript' src='../js/plugins.js'></script>
-            
-<script>$(document).ready(function() {
+<script>
     $('select').material_select();
+
+$(document).ready(function() {
+    $('.carousel.carousel-slider').carousel({full_width: true});
+    $('.carousel').carousel();
+    $('.slider').slider({full_width: true});
+    $('.parallax').parallax();
+    $('.modal-trigger').leanModal();
+    $('.scrollspy').scrollSpy();
+    $('.button-collapse').sideNav({'edge': 'left'});
+    $('.datepicker').pickadate({selectYears: 20});
+    $('select').not('.disabled').material_select();
   });
 </script>
     					</body>
