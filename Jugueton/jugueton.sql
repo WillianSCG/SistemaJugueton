@@ -220,18 +220,21 @@ create table if not exists encarrito( #I
 );
 
 create table if not exists eventos( #M
-	id_evento int(11) unsigned not null auto_increment primary key,
-	fecha_inicio date not null,
-	fecha_fin date not null,
-	esta_activo enum('false', 'true') default 'true' not null
-);
+  `id_evento` int(11) UNSIGNED NOT NULL,
+  `imagen_evento` mediumtext NOT NULL,
+  `descripcion` varchar(500) NOT NULL,
+  `fecha_inicio` date NOT NULL,
+  `fecha_fin` date NOT NULL,
+  `esta_activo` enum('false','true') NOT NULL DEFAULT 'true'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 create table if not exists noticias( #M
-	id_noticia int(11) unsigned not null auto_increment primary key,
-	cabecera varchar(50) not null,
-	informacion varchar(500) not null,
-	fecha timestamp not null
-);
+  `id_noticia` int(11) UNSIGNED NOT NULL,
+  `titulo` varchar(100) NOT NULL,
+  `imagen_noticia` mediumtext NOT NULL,
+  `descripcion` varchar(3500) NOT NULL,
+  `fecha_noticia` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 create table if not exists imagenes_slider( #M
 	id_imagen_slider int(11) unsigned not null auto_increment primary key,
