@@ -30,14 +30,14 @@ class productos
 
 	public static function obtenerProductos()
 	{
-		return Database::getRows(
-			"SELECT productos.id_producto, productos.nombre_producto, productos.descripcion_producto, productos.precio_normal_producto, productos.precio_oferta_producto, categorias.categoria, clasificaciones.clasificacion, marcas.marca, productos.estado_oferta
-			FROM marcas
-			    LEFT JOIN productos ON productos.id_marca = marcas.id_marca
-			    LEFT JOIN categorias ON productos.id_categoria = categorias.id_categoria
-			    LEFT JOIN clasificaciones ON productos.id_clasificacion = clasificaciones.id_clasificacion
-		    WHERE productos.existencias_producto > 0;",
-			null);
+		return (Database::getRows(
+					"SELECT productos.id_producto, productos.nombre_producto, productos.descripcion_producto, productos.precio_normal_producto, productos.precio_oferta_producto, categorias.categoria, clasificaciones.clasificacion, marcas.marca, productos.estado_oferta
+					FROM marcas
+					    LEFT JOIN productos ON productos.id_marca = marcas.id_marca
+					    LEFT JOIN categorias ON productos.id_categoria = categorias.id_categoria
+					    LEFT JOIN clasificaciones ON productos.id_clasificacion = clasificaciones.id_clasificacion
+				    WHERE productos.existencias_producto = 0;",
+					null));
 	}
 }
  ?>

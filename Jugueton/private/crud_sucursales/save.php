@@ -3,17 +3,15 @@ require("../lib/page.php");
 require("../../lib/database.php");
 require("../../lib/validator.php");
 
+
 if(empty($_GET['id'])) 
 {
-    Page::header("Agregar Sucursal");
-    Page::main();
     $id = null;
     $nombre = null;
     $direccion = null;
 }
 else
 {
-    Page::header("Modificar Sucursal");
     $id = $_GET['id'];
     $sql = "SELECT * FROM sucursales WHERE id_sucursal = ?";
     $params = array($id);
@@ -25,8 +23,8 @@ else
 if(!empty($_POST))
 {
     $_POST = Validator::validateForm($_POST);
-  	$nombre = $_POST['nombre'];
-  	$direccion = $_POST['direccion_sucursal'];
+    $nombre = $_POST['nombre'];
+    $direccion = $_POST['direccion'];
     if($direccion == "")
     {
         $direccion = null;
@@ -34,14 +32,14 @@ if(!empty($_POST))
 
     try 
     {
-      	if($nombre == "")
+        if($nombre == "")
         {
             throw new Exception("Datos incompletos.");
         }
 
         if($id == null)
         {
-        	$sql = "INSERT INTO sucursales(sucursal, direccion_sucursal) VALUES(?, ?)";
+            $sql = "INSERT INTO sucursales(sucursal, direccion_sucursal) VALUES(?, ?)";
             $params = array($nombre, $direccion);
         }
         else
@@ -57,18 +55,20 @@ if(!empty($_POST))
         print("<div class='card-panel red'><i class='material-icons left'>error</i>".$error->getMessage()."</div>");
     }
 }
+    Page::header("Modificar Sucursal");
+    Page::main();
 ?>
 <form method='post' class='row' enctype='multipart/form-data'>
     <div class='row'>
         <div class='input-field col s12 m6'>
-          	<i class='material-icons prefix'>add</i>
-          	<input id='nombre' type='text' name='nombre' class='validate' length='50' maxlenght='50' value='<?php print($nombre); ?>' required/>
-          	<label for='nombre'>Nombre</label>
+            <i class='material-icons prefix'>add</i>
+            <input id='nombre' type='text' name='nombre' class='validate' length='50' maxlenght='50' value='<?php print($nombre); ?>' required/>
+            <label for='nombre'>Nombre</label>
         </div>
         <div class='input-field col s12 m6'>
-          	<i class='material-icons prefix'>description</i>
-          	<input id='direccion' type='text' name='direccion' class='validate' length='200' maxlenght='200' value='<?php print($direccion); ?>'/>
-          	<label for='direccion'>Direccion</label>
+            <i class='material-icons prefix'>description</i>
+            <input id='direccion' type='text' name='direccion' class='validate' length='200' maxlenght='200' value='<?php print($direccion); ?>'/>
+            <label for='direccion'>Direccion</label>
         </div>
     </div>
     <a href='index.php' class='btn grey'><i class='material-icons right'>cancel</i>Cancelar</a>

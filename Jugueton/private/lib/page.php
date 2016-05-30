@@ -109,10 +109,10 @@ print($header);
                    
                     <li class='no-padding'>
                         <ul class='collapsible collapsible-accordion'>
-                            <li class='bold'><a class='collapsible-header waves-effect waves-cyan'><i class='mdi-shopping_cart'></i> Productos</a>
+                            <li class='bold'><a class='collapsible-header waves-effect waves-cyan'><i class='material-icons'>shopping_cart</i></i> Mantenimiento Productos</a>
                                 <div class='collapsible-body'>
                                     <ul>
-                                        <li><a href='../crud_productos/index.php'>Mantenimiento Productos</a>
+                                        <li><a href='../crud_productos/index.php'>Producto</a>
                                         </li>                                        
                                         <li><a href='../categorias/categorias.php'>Categorias</a>
                                         </li>
@@ -123,33 +123,16 @@ print($header);
                                     </ul>
                                 </div>
                             </li>
-                            <li class='bold'><a class='collapsible-header  waves-effect waves-cyan'><i class='mdi-image-palette'></i> UI Elements</a>
+                            <li class='bold'><a class='collapsible-header  waves-effect waves-cyan'><i class='mdi-image-palette'></i>Mantenimiento Usuarios</a>
                                 <div class='collapsible-body'>
                                     <ul>
-                                        <li><a href='ui-buttons.html'>Buttons</a>
+                                        <li><a href='ui-buttons.html'>Empleados</a>
                                         </li>
-                                        <li><a href='ui-badges.html'>Badges</a>
+                                        <li><a href='ui-badges.html'>Clientes</a>
                                         </li>
-                                        <li><a href='ui-cards.html'>Cards</a>
+                                        <li><a href='ui-cards.html'>Clientes Club</a>
                                         </li>
-                                        <li><a href='ui-collections.html'>Collections</a>
-                                        </li>
-                                        <li><a href='ui-accordions.html'>Accordian</a>
-                                        </li>                                        
-                                        <li><a href='ui-navbar.html'>Navbar</a>
-                                        </li>
-                                        <li><a href='ui-pagination.html'>Pagination</a>
-                                        </li>
-                                        <li><a href='ui-preloader.html'>Preloader</a>
-                                        </li>
-                                        <li><a href='ui-modals.html'>Modals</a>
-                                        </li>
-                                        <li><a href='ui-media.html'>Media</a>
-                                        </li>
-                                        <li><a href='ui-toasts.html'>Toasts</a>
-                                        </li>
-                                        <li><a href='ui-tooltip.html'>Tooltip</a>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </li>
