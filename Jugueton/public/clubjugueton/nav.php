@@ -1,36 +1,4 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Club Jugueton</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/sb-admin.css" rel="stylesheet">
-    <link href="css/eventos.css" rel="stylesheet">
-
-    <!-- Morris Charts CSS -->
-    <link href="css/morris.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
-<link href='https://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
-    <!-- Bootstrap Core CSS -->
-</head>
-
-<body>
-
-    <div id="wrapper">
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+ <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -144,7 +112,7 @@
                     </ul>
                 </li>
             </ul>
-         
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
@@ -161,122 +129,24 @@
                     
                     <li>
 
-                        <a href="index.html"><i class="fa fa-home" aria-hidden="true" lado></i> Inicio</a>
+                        <a href="index.php"><i class="fa fa-home" aria-hidden="true" lado></i> Inicio</a>
                     </li>
                     <li>
-                        <a href="noticias.html"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Noticias</a>
+                        <a href="forms.php"><i class="fa fa-user" aria-hidden="true"></i> Perfil </a>
+
                     </li>
                     <li>
-                        <a href="eventos.html"><i class="fa fa-calendar" aria-hidden="true"></i> Eventos</a>
+                        <a href="noticia.php"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Noticias</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-user" aria-hidden="true"></i> Perfil </a>
+                        <a href="eventos.php"><i class="fa fa-calendar" aria-hidden="true"></i> Eventos</a>
                     </li>
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-trophy" aria-hidden="true"></i> Juegos <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#"> <i class="fa fa-puzzle-piece" aria-hidden="true"></i> Rompecabeza</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-rocket" aria-hidden="true"></i> Acción</a>
-                            </li>
-                        </ul>
+                        <a href="juegos.php"  data-target="#demo"><i class="fa fa-trophy" aria-hidden="true"></i> Juegos </a>
+                      
                     </li>
                 </ul>
                 
             </div>
             <!-- /.navbar-collapse -->
         </nav>
-
-        <div id="page-wrapper">
- 
-            <div class="container">
-		<div class="row">
-			<div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-				<ul class="event-list">
-					<li>
-						<time datetime="2014-07-20">
-							<span class="day">4</span>
-							<span class="month">Jul</span>
-							<span class="year">2014</span>
-							<span class="time">ALL DAY</span>
-						</time>
-						<img alt="Independence Day" src="https://farm4.staticflickr.com/3100/2693171833_3545fb852c_q.jpg" />
-						<div class="info">
-							<h2 class="title">Independence Day</h2>
-							<p class="desc">United States Holiday</p>
-						</div>
-						
-					</li>
-
-					<li>
-						<time datetime="2014-07-20 0000">
-							<span class="day">8</span>
-							<span class="month">Jul</span>
-							<span class="year">2014</span>
-							<span class="time">12:00 AM</span>
-						</time>
-						<div class="info">
-							<h2 class="title">One Piece Unlimited World Red</h2>
-							<p class="desc">PS Vita</p>
-					</div>
-					</li>
-					<li>
-						<time datetime="2014-07-20 2000">
-							<span class="day">20</span>
-							<span class="month">Jan</span>
-							<span class="year">2014</span>
-							<span class="time">8:00 PM</span>
-						</time>
-						<img alt="My 24th Birthday!" src="https://farm5.staticflickr.com/4150/5045502202_1d867c8a41_q.jpg" />
-						<div class="info">
-							<h2 class="title">Mouse0270's 24th Birthday!</h2>
-							<p class="desc">Bar Hopping in Erie, Pa.</p>
-							
-						</div>
-						
-					</li>
-
-					<li>
-						<time datetime="2014-07-31 1600">
-							<span class="day">31</span>
-							<span class="month">Ene</span>
-							<span class="year">2016</span>
-							<span class="time">4:00 PM</span>
-						</time>
-						<img alt="Disney Junior Live On Tour!" src="http://www.thechaifetzarena.com/images/main/DL13_PiratePrincess_thumb.jpg" />
-						<div class="info">
-							<h2 class="title">Disney Junior Live On Tour!</h2>
-							<p class="desc"> Pirate and Princess Adventure</p>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-             
-                
-
-                
-                
-
-                
-                
-
-                
-                
-
-            </div>
-        </div>
-    </div>
-
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/raphael.min.js"></script>
-    <script src="js/morris.min.js"></script>
-    <script src="js/morris-data.js"></script>
-
-</body>
-</html>
